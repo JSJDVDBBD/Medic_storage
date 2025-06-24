@@ -1,0 +1,37 @@
+/* resources/css/app.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Font Awesome */
+@import '~fontawesome/css/fontawesome.css';
+@import '~fontawesome/css/solid.css';
+@import '~fontawesome/css/regular.css';
+@import '~fontawesome/css/brands.css';
+
+/* Estilos personalizados */
+[x-cloak] { display: none !important; }
+
+/* Animaciones */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
