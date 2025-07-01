@@ -69,7 +69,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $medicamento->nombre }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="px-2 py-1 rounded-full bg-red-100 text-red-800">
-                                    {{ $medicamento->cantidad }} unidades
+                                    {{ $medicamento->stock }} unidades
                                 </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">

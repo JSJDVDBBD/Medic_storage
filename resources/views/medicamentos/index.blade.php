@@ -105,7 +105,7 @@
                                     class="text-yellow-600 hover:text-yellow-900" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('medicamentos.destroy', $medicamento->id) }}" method="POST" class="inline">
+                                <form action="{{ route('medicamentos.destroy', $medicamento) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900" 
