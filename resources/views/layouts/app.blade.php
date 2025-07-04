@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('ventas.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('ventas.*')) bg-blue-100 text-blue-800 font-medium @endif">
+                            <a href="{{ route('punto-venta.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('punto-venta.*')) bg-blue-100 text-blue-800 font-medium @endif">
                                 <i class="fas fa-cash-register mr-3"></i> Punto de Venta
                             </a>
                         </li>

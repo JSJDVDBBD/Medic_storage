@@ -7,6 +7,7 @@ use App\Http\Controllers\AlertaController;
 use App\Http\Controllers\CorteCajaController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PuntoVentaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,6 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('corte-caja', CorteCajaController::class);
     Route::post('corte-caja/{corte}/close', [CorteCajaController::class, 'close'])
         ->name('corte-caja.close');
+
+    Route::resource('punto-venta', PuntoVentaController::class)
+        ->parameters([
+            'punto-venta'=>'puntoVenta'
+        ])
+        ->except(['show']);
 });
 
 require __DIR__.'/auth.php';
