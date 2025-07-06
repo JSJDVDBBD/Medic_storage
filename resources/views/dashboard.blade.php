@@ -94,7 +94,8 @@
                 @foreach($topProductos as $producto)
                     <div class="flex items-center justify-between p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
                         <div class="flex items-center">
-                            <img src="{{ $producto->medicamento->imagen_url }}" alt="{{ $producto->medicamento->nombre }}" 
+                            <img src="{{ asset('storage/'.$producto->medicamento->imagen) }}" 
+                                 alt="{{ $producto->medicamento->nombre }}"
                                 class="h-10 w-10 rounded-full object-cover mr-3 border">
                             <span class="font-medium text-gray-700">{{ $producto->medicamento->nombre }}</span>
                         </div>
@@ -115,7 +116,7 @@
                 @foreach($proximosCaducar as $medicamento)
                     <div class="flex items-center justify-between p-3 bg-orange-50 rounded hover:bg-orange-100 transition-colors">
                         <div class="flex items-center">
-                            <img src="{{ $medicamento->imagen_url }}" alt="{{ $medicamento->nombre }}" 
+                           <img src="{{asset('storage/'.$medicamento->imagen)}}" alt="{{ $medicamento->nombre }}"
                                 class="h-10 w-10 rounded-full object-cover mr-3 border">
                             <div>
                                 <span class="font-medium text-gray-700">{{ $medicamento->nombre }}</span>
@@ -164,7 +165,8 @@
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <img src="{{ $alerta->medicamento->imagen_url }}" alt="{{ $alerta->medicamento->nombre }}" 
+                                    <img src="{{ asset('storage/'.$alerta->medicamento->imagen) }}" 
+                                         alt="{{ $alerta->medicamento->nombre }}"
                                         class="h-10 w-10 rounded-full object-cover mr-3">
                                     <a href="{{ route('medicamentos.show', $alerta->medicamento_id) }}" class="text-blue-600 hover:underline">
                                         {{ $alerta->medicamento->nombre }}
@@ -193,9 +195,7 @@
                                     <form action="{{ route('alertas.resolve', $alerta->id) }}" method="POST" class="inline">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="text-green-600 hover:text-green-900 flex items-center text-sm">
-                                            <i class="fas fa-check-circle mr-1"></i> Resolver
-                                        </button>
+                                        
                                     </form>
                                     <a href="{{ route('medicamentos.edit', $alerta->medicamento_id) }}" class="text-blue-600 hover:text-blue-900 flex items-center text-sm">
                                         <i class="fas fa-edit mr-1"></i> Editar

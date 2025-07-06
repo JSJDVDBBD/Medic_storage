@@ -67,7 +67,7 @@
                     @endphp
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <img src="{{ $medicamento->imagen_url }}" alt="{{ $medicamento->nombre }}" class="h-10 w-10 rounded-full object-cover">
+                            <img src="{{asset('storage/'.$medicamento->imagen)}}" alt="{{ $medicamento->nombre }}" class="h-10 w-10 rounded-full object-cover">
                         </td>
                         <td class="px-6 py-4">
                             <div class="font-medium text-gray-900">{{ $medicamento->nombre }}</div>

@@ -26,12 +26,12 @@
         
         <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Columna Izquierda - Imagen e Info Básica -->
+
             <div class="md:col-span-1">
                 <div class="bg-gray-50 p-4 rounded-lg border">
                     <div class="flex justify-center mb-4">
-                        <img src="{{asset('storage/'.$medicamento->imagen)}}" alt="{{ $medicamento->nombre }}" 
+                        <img src="{{asset('storage/'.$medicamento->imagen)}}" alt="{{ $medicamento->nombre }}"
                             class="h-48 w-48 object-contain rounded-lg border">
-                            
                     </div>
                     
                     <div class="space-y-3">

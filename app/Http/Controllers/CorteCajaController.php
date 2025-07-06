@@ -24,18 +24,21 @@ class CorteCajaController extends Controller
      */
     public function create()
     {
-         $ventasHoy = Venta::whereDate('fecha_venta', today())->get();
-        
-        $totalEfectivo = $ventasHoy->where('metodo_pago', 'efectivo')->sum('total');
-        $totalTransferencia = $ventasHoy->where('metodo_pago', 'transferencia')->sum('total');
-        $totalVentas = $ventasHoy->sum('total');
-        
-        return view('corte-caja.create', compact(
-            'totalEfectivo',
-            'totalTransferencia',
-            'totalVentas'
-        ));
-    }
+          $ventasHoy = Venta::whereDate('created_at', Carbon::today())->get();
+    
+    // Calcular totales por método de pago
+    $ventasEfectivo = $ventasHoy->where('metodo_pago', 'efectivo')->sum('total');
+    $ventasTarjeta = $ventasHoy->where('metodo_pago', 'tarjeta')->sum('total');
+    $ventasTransferencia = $ventasHoy->where('metodo_pago', 'transferencia')->sum('total');
+    $totalVentas = $ventasEfectivo + $ventasTarjeta + $ventasTransferencia;
+    
+    return view('corte-caja.create', compact(
+        'ventasEfectivo',
+        'ventasTarjeta',
+        'ventasTransferencia',
+        'totalVentas'
+    ));
+}
 
     /**
      * Store a newly created resource in storage.
