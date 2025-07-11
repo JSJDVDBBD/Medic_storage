@@ -27,6 +27,10 @@ class DatabaseSeeder extends Seeder
 
         // 3. Crear ventas sin factory
         $this->crearVentas();
+
+        $this->call([
+            PermissionsSeeder::class
+        ]);
     }
 
     protected function crearMedicamentos()
