@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
         ->parameters([
             'punto-venta'=>'puntoVenta'
         ])
-        ->except(['show']);
+        ->except([]);
 });
 
 require __DIR__.'/auth.php';
