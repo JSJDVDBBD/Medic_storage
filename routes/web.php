@@ -8,6 +8,7 @@ use App\Http\Controllers\CorteCajaController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PuntoVentaController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function () {
             'punto-venta'=>'puntoVenta'
         ])
         ->except([]);
+
+    Route::resource('roles',RoleController::class)
+        ->except(['show']);
 });
 
 require __DIR__.'/auth.php';
