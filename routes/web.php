@@ -9,6 +9,8 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PuntoVentaController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +49,12 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('roles',RoleController::class)
         ->except(['show']);
+
+    Route::resource('ventas', SaleController::class)
+        ->except(['index', 'update', 'destroy','show']);
+
+    Route::resource('users',UserController::class)
+        ->except(['show','destroy']);
 });
 
 require __DIR__.'/auth.php';
