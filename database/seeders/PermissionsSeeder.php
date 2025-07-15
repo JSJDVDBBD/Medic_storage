@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionsSeeder extends Seeder
 {
@@ -13,7 +14,10 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::firstOrCreate(['name' => 'Accesso puntos de venta']);
-        Permission::firstOrCreate(['name' => 'Accesso a Roles']);
+        $role = Role::create(['name'=>'Administrador']);
+
+        Permission::create(['name' => 'accesso puntos de venta'])->syncRoles([$role]);
+        Permission::create(['name' => 'accesso a roles'])->syncRoles([$role]);
+        Permission::create(['name' => 'accesso a administracion'])->syncRoles($role);
     }
 }
