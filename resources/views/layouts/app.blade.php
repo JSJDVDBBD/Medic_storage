@@ -62,33 +62,37 @@
                                 @endif
                             </a>
                         </li>
+                        @can('accesso puntos de venta') 
                         <li>
                             <a href="{{ route('punto-venta.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('punto-venta.*')) bg-blue-100 text-blue-800 font-medium @endif">
-                                <i class="fas fa-cash-register mr-3"></i> Punto de Venta
+                                <i class="fas fa-cash-register mr-3"></i> Puntos de Venta
                             </a>
                         </li>
+                        @endcan
                         <li>
                             <a href="{{ route('corte-caja.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('corte-caja.*')) bg-blue-100 text-blue-800 font-medium @endif">
                                 <i class="fas fa-calculator mr-3"></i> Corte de Caja
                             </a>
                         </li>
+                        @can('accesso a roles') 
                         <li>
                             <a href="{{ route('roles.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('roles.*')) bg-blue-100 text-blue-800 font-medium @endif">
                                 <i class=" fas fa-shield-alt mr-3"></i> Roles
                             </a>
                         </li>
+                        @endcan
                         <li>
                             <a href="{{ route('ventas.create') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('ventas.*')) bg-blue-100 text-blue-800 font-medium @endif">
                                 <i class="fas fa-cash-register mr-3"></i> Mi punto de venta
                             </a>
                         </li>
-                        @if(auth()->user()->isAdmin())
+                        @can('accesso a administracion')
                         <li class="pt-4 mt-4 border-t">
                             <a href="{{route('users.index')}}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if (request()->routeIs('users*')) bg-blue-100 text-blue-800 font-medium @endif">
                                 <i class="fas fa-users-cog mr-3"></i> Administración
                             </a>
                         </li>
-                        @endif
+                        @endcan
                     </ul>
                 </div>
             </aside>
@@ -124,23 +128,38 @@
                                     @endif
                                 </a>
                             </li>
+                            @can('accesso puntos de venta')
+                                
                             <li>
                                 <a href="{{ route('ventas.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('ventas.*')) bg-blue-100 text-blue-800 font-medium @endif">
-                                    <i class="fas fa-cash-register mr-3"></i> Punto de Venta
+                                    <i class="fas fa-cash-register mr-3"></i> Puntos de Venta
                                 </a>
                             </li>
+                            @endcan
                             <li>
                                 <a href="{{ route('corte-caja.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('corte-caja.*')) bg-blue-100 text-blue-800 font-medium @endif">
                                     <i class="fas fa-calculator mr-3"></i> Corte de Caja
                                 </a>
                             </li>
-                            @if(auth()->user()->isAdmin())
+                            @can('accesso a roles') 
+                            <li>
+                                <a href="{{ route('roles.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('roles.*')) bg-blue-100 text-blue-800 font-medium @endif">
+                                    <i class="fas fa-shield-alt mr-3"></i> Roles
+                                </a>
+                            </li>
+                            @endcan
+                            <li>
+                                <a href="{{ route('ventas.index') }}" class="flex items-center px-4 py-2 rounded hover:bg-blue-100 @if(request()->routeIs('ventas.*')) bg-blue-100 text-blue-800 font-medium @endif">
+                                    <i class="fas fa-cash-register mr-3"></i> My punto de venta
+                                </a>
+                            </li>
+                            @can('accesso a administracion') 
                             <li class="pt-4 mt-4 border-t">
                                 <a href="#" class="flex items-center px-4 py-2 rounded hover:bg-blue-100">
                                     <i class="fas fa-users-cog mr-3"></i> Administración
                                 </a>
                             </li>
-                            @endif
+                            @endcan
                         </ul>
                     </div>
                 </div>
