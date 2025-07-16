@@ -32,6 +32,10 @@ Route::middleware('auth')->group(function () {
     
     // Ventas
     Route::resource('ventas', VentaController::class)->except(['edit', 'update', 'destroy']);
+
+    // routes/web.php
+     Route::get('/punto-venta/{id}', [PuntoVentaController::class, 'show'])
+     ->name('punto-venta.show');
     
     // Corte de Caja
     Route::resource('corte-caja', CorteCajaController::class);
