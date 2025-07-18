@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PuntoVentaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -55,6 +56,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users',UserController::class)
         ->except(['show','destroy']);
+
+    Route::get('api/search/medicamentos', [SearchController::class,'medicamentos']);
 });
 
 require __DIR__.'/auth.php';

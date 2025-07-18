@@ -20,7 +20,7 @@ class SaleController extends Controller
 
     public function store(SaleRequest $request)
     {
-        return $request->all();
+        //return $request->all();
         try {
             // Validar stock antes de la transacción
             foreach ($request->productos as $producto) {
