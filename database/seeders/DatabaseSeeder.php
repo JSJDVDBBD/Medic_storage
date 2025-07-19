@@ -15,18 +15,25 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // 1. Crear usuario admin
+        
+        
+        $this->call([
+            PermissionsSeeder::class
+        ]);
         User::create([
             'name' => 'Administrador',
             'email' => 'admin@medicstorage.com',
             'password' => Hash::make('password'),
             'role' => 'admin'
-        ]);
-
+        ])->assignRole('Administrador');
+    
+ 
         // 2. Crear medicamentos sin factory
         $this->crearMedicamentos();
-
+            
         // 3. Crear ventas sin factory
         $this->crearVentas();
+    
     }
 
     protected function crearMedicamentos()
