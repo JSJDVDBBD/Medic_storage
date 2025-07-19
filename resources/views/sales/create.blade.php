@@ -104,9 +104,14 @@
 
                         <div class="mt-4">
                             <label class="block text-gray-700 font-medium mb-2">Método de pago</label>
-                            <input type="text" name="metodo_pago"
+                            <select name="metodo_pago"
                                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 required>
+                                <option value="" disabled selected>Selecciona un método</option>
+                                <option value="EFECTIVO">Efectivo</option>
+                                <option value="TRANSFERENCIA">Transferencia</option>
+                                <option value="TARJETA">Tarjeta</option>
+                            </select>
                         </div>
 
                         <div class="mt-4">
