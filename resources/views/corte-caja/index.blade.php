@@ -27,7 +27,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($cortes as $corte)
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $corte->fecha->format('d/m/Y') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $corte->fecha }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${{ number_format($corte->ventas_efectivo, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${{ number_format($corte->ventas_transferencia, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${{ number_format($corte->total_ventas, 2) }}</td>
@@ -36,7 +36,7 @@
                             ${{ number_format($corte->diferencia, 2) }}
                         </span>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $corte->usuario->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $corte->user->name }}</td>
                 </tr>
                 @endforeach
             </tbody>

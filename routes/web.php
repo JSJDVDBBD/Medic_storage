@@ -34,12 +34,12 @@ Route::middleware('auth')->group(function () {
         ->name('alertas.resolve');
     
     // Ventas
-    Route::resource('ventas', VentaController::class)->except(['edit', 'update', 'destroy']);
+    Route::resource('ventas', VentaController::class)
+        ->except(['edit', 'update', 'destroy']);
     
     // Corte de Caja
-    Route::resource('corte-caja', CorteCajaController::class);
-    Route::post('corte-caja/{corte}/close', [CorteCajaController::class, 'close'])
-        ->name('corte-caja.close');
+    Route::resource('corte-caja', CorteCajaController::class)
+        ->except(['show','edit', 'update','destroy']);
 
     Route::resource('punto-venta', PuntoVentaController::class)
         ->parameters([
