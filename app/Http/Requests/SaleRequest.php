@@ -27,7 +27,7 @@ class SaleRequest extends FormRequest
             'impuesto' => ['required', 'numeric'],
             'descuento' => ['required', 'numeric'],
             'total' => ['required', 'numeric'],
-            'metodo_pago' => ['required', 'string'],
+            'metodo_pago' => ['required', 'string','in:EFECTIVO,TRANSFERENCIA,TARJETA'],
             'estado' => ['nullable', 'string'],
             'observaciones' => ['nullable', 'string'],
             'productos' => ['required', 'array'],
