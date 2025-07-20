@@ -18,7 +18,8 @@ class Venta extends Model
         'total',
         'metodo_pago',
         'estado',
-        'observaciones'
+        'observaciones',
+        'fecha_venta'
     ];
 
     public function detalles()
