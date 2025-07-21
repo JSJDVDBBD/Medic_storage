@@ -6,10 +6,10 @@ use App\Http\Controllers\MedicamentoController;
 use App\Http\Controllers\AlertaController;
 use App\Http\Controllers\CorteCajaController;
 use App\Http\Controllers\VentaController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PuntoVentaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -39,11 +39,13 @@ Route::middleware('auth')->group(function () {
     // routes/web.php
      Route::get('/punto-venta/{id}', [PuntoVentaController::class, 'show'])
      ->name('punto-venta.show');
+    Route::resource('ventas', VentaController::class)
+        ->except(['edit', 'update', 'destroy']);
+
     
     // Corte de Caja
-    Route::resource('corte-caja', CorteCajaController::class);
-    Route::post('corte-caja/{corte}/close', [CorteCajaController::class, 'close'])
-        ->name('corte-caja.close');
+    Route::resource('corte-caja', CorteCajaController::class)
+        ->except(['show','edit', 'update','destroy']);
 
     Route::resource('punto-venta', PuntoVentaController::class)
         ->parameters([
@@ -59,6 +61,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users',UserController::class)
         ->except(['show','destroy']);
+
+    Route::get('api/search/medicamentos', [SearchController::class,'medicamentos']);
 });
 
 require __DIR__.'/auth.php';

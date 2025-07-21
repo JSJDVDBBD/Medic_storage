@@ -7,6 +7,7 @@
     <title>Medic Storage - @yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    @yield('styles')
 </head>
 <body class="bg-gray-100 font-sans antialiased">
     <div class="min-h-screen flex flex-col">
