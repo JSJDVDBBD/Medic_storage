@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class SaleController extends Controller
 {
+    public function index(){
+        $sales = Venta::paginate(10);
+        return view('sales.index', compact('sales'));
+    }
+
     public function create()
     {
         $medicamentos = Medicamento::all(); // Solo los disponibles si deseas
@@ -73,4 +78,9 @@ class SaleController extends Controller
                 ->with('error', 'Error al registrar la venta.');
         }
     }
+
+    public function show(Venta $venta){
+        $venta->with(['usuario','detalles'=>['medicamento']]);
+        return view('sales.show', compact('venta'));
+    }        
 }
