@@ -8,9 +8,15 @@
 @section('content')
 
         <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-xl font-semibold mb-6 flex items-center">
-                <i class="fas fa-cash-register mr-3"></i> Registrar nueva venta
-            </h2>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-cash-register mr-3"></i> Registrar nueva venta
+                </h2>
+                <a href="{{ route('ventas.index') }}"
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
+                    Listado de Ventas
+                </a>
+            </div>
             <form action="{{ route('ventas.store') }}" method="POST">
                 @csrf
                 <div class="gap-6">

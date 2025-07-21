@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
         ->except(['show']);
 
     Route::resource('ventas', SaleController::class)
-        ->except(['index', 'update', 'destroy','show']);
+        ->except(['update', 'destroy', 'edit']);
 
     Route::resource('users',UserController::class)
         ->except(['show','destroy']);
